@@ -1,2 +1,2 @@
-# JunewooManagementSystem
+# MenuManagementSystem
 opp at gnu
