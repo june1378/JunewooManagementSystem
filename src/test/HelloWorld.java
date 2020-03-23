@@ -3,11 +3,13 @@ package test;
 
 public class HelloWorld {
     public static void main(String[] args) {
-		System.out.println("1. Add student");
-		System.out.println("2. Delete student");
-		System.out.println("3. Edit student");
-		System.out.println("4. View student");
-		System.out.println("5. Exit");
+		System.out.println("1. Add the name of food");
+		System.out.println("2. Add the price of food");
+		System.out.println("3. Add the number of food");
+		System.out.println("4. Delete the name of food");
+		System.out.println("5. Delete the price of food");
+		System.out.println("6. Delete the number of food");
+		System.out.println("7. Exit");
 		
 	}
 }
