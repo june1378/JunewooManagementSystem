@@ -1,7 +1,7 @@
 package test;
 
 
-public class HelloWorld {
+public class MenuManagement {
     public static void main(String[] args) {
 		System.out.println("1. Add the name of food");
 		System.out.println("2. Add the price of food");
