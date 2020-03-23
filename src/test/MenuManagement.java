@@ -10,7 +10,7 @@ public class MenuManagement {
 		System.out.println("5. Delete the price of food");
 		System.out.println("6. Delete the number of food");
 		System.out.println("7. Exit");
-		
+		System.out.println("Select a number");
 	}
 }
 
