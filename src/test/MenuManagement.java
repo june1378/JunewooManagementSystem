@@ -50,7 +50,7 @@ public class MenuManagement {
 		System.out.println(foodname);
 		System.out.print("side menu");
 		String sidemenu  =input.next();
-		System.out.println(sidemenu);
+		System.out.println(sidemenu);  //
 	
 	}
 	public static void addPrice() {
