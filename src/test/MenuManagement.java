@@ -17,7 +17,7 @@ public class MenuManagement {
 			System.out.println("7. Edit");
 			System.out.println("8. Exit");
 			System.out.println("Select a number");
-			num= input.nextInt(); ////
+			num= input.nextInt(); ///////
 			if (num==1) {
 				addName();
 			}
