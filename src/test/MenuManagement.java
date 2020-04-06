@@ -4,10 +4,14 @@ import java.util.Scanner;
 
 public class MenuManagement {
 	public static void main(String[] args) {
+		
+		 
 		Scanner input = new Scanner(System.in);
+		Menumanager Menumanager = new Menumanager(input);
+		
 		int num = 5;
 
-		while (num!=8) {
+		while (num!=9) {
 			System.out.println("1. Add the name of food");
 			System.out.println("2. Add the price of food");
 			System.out.println("3. Add the number of food");
@@ -15,80 +19,37 @@ public class MenuManagement {
 			System.out.println("5. Delete the price of food");
 			System.out.println("6. Delete the number of food");
 			System.out.println("7. Edit");
-			System.out.println("8. Exit");
-			System.out.println("Select a number");
+			System.out.println("8. View");
+			System.out.println("9. Exit");
+			System.out.println("Select one number between 1 - 9:");
 			num= input.nextInt(); ///////
 			if (num==1) {
-				addName();
+				Menumanager.addName();
 			}
 			else if (num==2) {
-				addPrice();
+				Menumanager.addPrice();
 			}	
 			else if (num==3) {
-				addNumber();
+				Menumanager.addNumber();
 			}	
 			else if (num==4) {
-				deleteName();
+				Menumanager.deleteName();
 			}	
 			else if (num==5) {
-				deletePrice();
+				Menumanager.deletePrice();
 			}	
 			else if (num==6) {
-				deleteNumber();
+				Menumanager.deleteNumber();
 			}	
 			else if (num==7) {
-				edit();
-			}	
+				Menumanager.edit();					
+			}
+			else if (num==8) {
+				Menumanager.view();	
+			 
+				continue;
+			}
 		}
-	}	
-	public static void addName() {
-		Scanner input = new Scanner(System.in);
-		System.out.print("Order number");
-		int ordernumber=input.nextInt();
-		System.out.print("Food name");
-		String foodname  =input.next();
-		System.out.println(foodname);
-		System.out.print("side menu");
-		String sidemenu  =input.next();
-		System.out.println(sidemenu);  //
-	
 	}
-	public static void addPrice() {
-		Scanner input = new Scanner(System.in);
-		System.out.print("Order number");
-		int ordernumber=input.nextInt();
-
-	}
-	public static void addNumber() {
-		Scanner input = new Scanner(System.in);
-		System.out.print("Order number");
-		int ordernumber=input.nextInt();
-
-	}
-	public static void deleteName() {
-		Scanner input = new Scanner(System.in);
-		System.out.print("Order number");
-		int ordernumber=input.nextInt();
-
-	}
-	public static void deletePrice() {
-		Scanner input = new Scanner(System.in);
-		System.out.print("Order number");
-		int ordernumber=input.nextInt();
-
-	}
-	public static void deleteNumber() {
-		Scanner input = new Scanner(System.in);
-		System.out.print("Order number");
-		int ordernumber=input.nextInt();
-
-	}
-	public static void edit() {
-		Scanner input = new Scanner(System.in);
-		System.out.print("Order number");
-		int ordernumber=input.nextInt();
-
-	}
-}
-
+}	
 
