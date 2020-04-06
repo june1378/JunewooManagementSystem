@@ -87,10 +87,54 @@ public class Menumanager {
 		System.out.print("Order number");
 		int ordernumber=input.nextInt();
 		if (Menu.number == ordernumber) {
-			System.out.println("the food to be edited is"+ ordernumber);
-		}
 
+			int num = 5;
+
+			while (num!=9) {
+				System.out.println("** food Info edit menu**");
+				System.out.println("1. edit name");
+				System.out.println("2. edit price");
+				System.out.println("3. edit number");
+				System.out.println("4. Edit");
+				System.out.println("5. View");
+				System.out.println("6. Exit");
+				System.out.println("Select one number between 1 - 9:");
+				num= input.nextInt(); ///////
+				if (num==1) {
+					System.out.print("Order number");
+					Menu.number=input.nextInt();
+			        
+				}
+				else if (num==2) {
+					System.out.print("Food name");
+					Menu.name  =input.next();
+					
+				}	
+				else if (num==3) {
+					System.out.println("sidemenu");
+					Menu.side  =input.next();
+					
+				}	
+				else if (num==4) {
+					
+				}	
+				else if (num==5) {
+					
+				}	
+				else if (num==6) {
+					
+				}	
+				else if (num==7) {
+									
+				}
+				else if (num==8) {
+					
+				 
+					continue;
+				}
+			}
 	}
+}
 
 	public void view() {
 		
