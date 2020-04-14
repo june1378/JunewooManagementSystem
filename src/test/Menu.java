@@ -2,10 +2,10 @@ package test;
 
 public class Menu {
 	
-	String name;
+	static String name;
 	int price;
-	int number;
-	String side;
+    static int number;
+    String side;
 	String food;
 	
 	public Menu() {
