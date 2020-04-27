@@ -16,24 +16,32 @@ public class Menumanager {
     	while (kind!=1 && kind !=2) {
     		System.out.println("1 for 중식");
      	    System.out.println("2 for 양식");
-    	    System.out.println("select num for menu kind between 1 and 2:"); 
+     	    System.out.println("3 for 한식");
+    	    System.out.println("select num for menu kind among 1, 2, 3:"); 
     	    kind= input.nextInt();
     	    if(kind==1) {
-    	    	menu = new Menu();
+    	    	menu = new Menu(Menukind.중식);
     	    	menu.getUserInput(input);
     	    	menues.add(menu);
     	    	break;
     		
     	    }
     	    else if (kind ==2) {
-    	        menu = new 양식(); //한글은 안되나? import가 안뜨네 그게 아니라 양식 자체가 menu, 양식 menu가 아니라26분 25초 
+    	        menu = new 양식(Menukind.양식); 
+    	        menu.getUserInput(input); 
+    	        menues.add(menu);
+    	    	break;
+    		
+    	    }
+    	    else if (kind ==3) {
+    	        menu = new 한식(Menukind.한식);  
     	        menu.getUserInput(input); 
     	        menues.add(menu);
     	    	break;
     		
     	    }
     	    else {
-    	    	System.out.println("select num for menu kind between 1 and 2:");
+    	    	System.out.println("select num for menu kind among 1, 2, 3:");
     		
     	    }
     	}	
