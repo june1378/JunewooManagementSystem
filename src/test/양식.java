@@ -2,45 +2,47 @@ package test;
 
 import java.util.Scanner;
 
-public class 양식 extends Menu {
+public class 양식 extends TeenageMenu {
 	
 	public 양식(Menukind kind) {
 		super(kind); // super은 위 생성자를 뜻함
 	}
 	
+	
 	public void getUserInput(Scanner input) {
-		 System.out.println("order number:"); 
-	        int ordernumber= input.nextInt(); 
-	        this.setOrdernumber(ordernumber);
+		 setMenuordernumber(input);
+		 setMenufoodname(input);
+	     setMenufoodprice(input);   
+	     setMenubeverage(input);   
 	        
-	        System.out.println("food name:");
-	        String foodname= input.next();
-	        this.setFoodname(foodname);
 	        
-	        System.out.println("food price:"); 
-	        int foodprice= input.nextInt();
-	        this.setFoodprice(foodprice);
-	        
-	        char answer = 'x';
-	        while (answer!= 'Y'&& answer != 'N')
-	        {
-	        	System.out.println("do you want to order a beverage? (Y/N)"); 
-	            answer = input.next().charAt(0);
-	            if(answer =='Y') {
-	            	System.out.println("beverage:"); 
-		            String beverage= input.next();
-		            this.setBeverage(beverage);
-		            break;
-		        }
-	            else if (answer =='N') {
-	        	    this.setBeverage("");
-	        	    break;
-	            }
-	            else {
-	        	
-	        }
-	        
-	}
-
+//	        char answer = 'x';
+//	        while (answer!= 'Y'&& answer != 'N')
+//	        {
+//	        	System.out.println("do you want to order a beverage? (Y/N)"); 
+//	            answer = input.next().charAt(0);
+//	            if(answer =='Y') {
+//	            	setMenubeverage(input);
+//		            break;
+//		        }
+//	            else if (answer =='N') {
+//	        	    this.setBeverage("");
+//	        	    break;
+//	            }
+//	            else {
+//	        	
+//	        }
+//	        
+//	}
+//	        setMenufoodprice(input);
+//
   }
+	
+	public void printInfo() {
+		String skind = getkind();
+		System.out.println("kind"+ skind +"order number:"+ ordernumber + "food name:"+ foodname + "beverage"+ beverage );
+	}
+	
+	
 }
+//여기서 parent 코드 부족한데, 필요없는 부분(?)ㅇㅇ 

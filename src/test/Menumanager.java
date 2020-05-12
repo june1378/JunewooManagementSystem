@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menumanager {
-	ArrayList<Menu> menues = new ArrayList<Menu>();
+	ArrayList<Menuinput> menues = new ArrayList<Menuinput>();
 	Scanner input;
 	Menumanager(Scanner input){
 		this.input= input;
@@ -12,7 +12,7 @@ public class Menumanager {
 		
     public  void addfood() {
     	int kind = 0;
-    	 Menu menu;
+    	 Menuinput menuinput;
     	while (kind!=1 && kind !=2) {
     		System.out.println("1 for 중식");
      	    System.out.println("2 for 양식");
@@ -20,23 +20,23 @@ public class Menumanager {
     	    System.out.println("select num for menu kind among 1, 2, 3:"); 
     	    kind= input.nextInt();
     	    if(kind==1) {
-    	    	menu = new Menu(Menukind.중식);
-    	    	menu.getUserInput(input);
-    	    	menues.add(menu);
+    	    	menuinput = new 중식(Menukind.중식);
+    	    	menuinput.getUserInput(input);
+    	    	menues.add(menuinput);
     	    	break;
     		
     	    }
     	    else if (kind ==2) {
-    	        menu = new 양식(Menukind.양식); 
-    	        menu.getUserInput(input); 
-    	        menues.add(menu);
+    	        menuinput = new 양식(Menukind.양식); 
+    	        menuinput.getUserInput(input); 
+    	        menues.add(menuinput);
     	    	break;
     		
     	    }
     	    else if (kind ==3) {
-    	        menu = new 한식(Menukind.한식);  
-    	        menu.getUserInput(input); 
-    	        menues.add(menu);
+    	        menuinput = new 한식(Menukind.한식);  
+    	        menuinput.getUserInput(input); 
+    	        menues.add(menuinput);
     	    	break;
     		
     	    }
@@ -48,69 +48,65 @@ public class Menumanager {
     }
     
     public  void deletefood() {
-	    
+	
         System.out.println("order number:"); 
         int ordernumber= input.nextInt();
-        int index=-1;
+        int index= findindex(ordernumber);
+        removefromMenu(index, ordernumber);
+    }
+    
+    public int findindex(int ordernumber) {
+    	int index=-1;
         for (int i = 0; i<menues.size(); i++) {
         	if (menues.get(i).getOrdernumber() == ordernumber) {
         		index = i;
         		break;
-        	}
-        	
+        	}	
         }
-        if(index>=0) {
+        return index;
+    }
+    
+    public int removefromMenu(int index, int ordernumber) {
+    	if(index>=0) {
         	menues.remove(index);
         	System.out.println(ordernumber+"음식 삭제");
+        	return 1;
         	
         }
         else {
 			System.out.println("음식 주문 아직 안됐어");
-			return;
+			return -1;
         }
-        
+    	
     }
 
     public  void editfood() {        
         System.out.println("order number:"); 
         int ordernumber= input.nextInt();
         for (int i = 0; i<menues.size(); i++) {
-        	Menu menu= menues.get(i);
+        	Menuinput menu= menues.get(i);
             if (menu.getOrdernumber() == ordernumber) {
         	int num = -1;
-
     		while (num!=5) {
-    			System.out.println("1.Add food");
-    			System.out.println("2.Delete food");
-    			System.out.println("3.Edit food");
-    			System.out.println("4.View foods");
-    			System.out.println("5. Exit");
-    			System.out.println("Select one number between 1 ~ 5:");
-    			num= input.nextInt(); 
-    			if (num==1) {
-    				System.out.println("ordernumber");
-    				int number=input.nextInt(); // 왜 ordernumber 안받지?
-    				menu.setOrdernumber(ordernumber);
-    			}
-    			else if (num==2) {
-    				System.out.println("foodname");
-    				String foodname=input.next();
-    				menu.setFoodname(foodname);
-    			}	
-    			else if (num==3) {
-    				System.out.println("foodprice");
-    				int foodprice=input.nextInt();
-    				menu.setFoodprice(foodprice);
-    			}	
-    			else if (num==4) {
-    				System.out.println("beverage");
-    				String beverage=input.next();
-    				menu.setBeverage(beverage);
-    			}	
-    			else {
+    			viewEditMenu();
+    			num= input.nextInt();
+    			switch(num) {
+    			case 1:
+    				menu.setMenuordernumber(input);
+    				break;
+    			case 2:
+    				menu.setMenufoodname(input);
+    				break;
+    			case 3:
+    				menu.setMenufoodprice(input);
+    				break;
+    			case 4:
+    				menu.setMenubeverage(input);
+    				break;
+    			default:
     				continue;
     			}
-    		}
+    				}
     	}
     }
 }
@@ -120,13 +116,24 @@ public class Menumanager {
         for (int i = 0; i<menues.size(); i++) {
         	menues.get(i).printInfo();
         	
-        	
         }
         
        }
+    
+    
+    
+    public void viewEditMenu() {
+    	System.out.println("1.Add food");
+		System.out.println("2.Delete food");
+		System.out.println("3.Edit food");
+		System.out.println("4.View foods");
+		System.out.println("5. Exit");
+		System.out.println("Select one number between 1 ~ 5:");
     }
     
-	
+    }
+    
+
 
 	
 	
