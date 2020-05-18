@@ -2,6 +2,8 @@ package test;
 
 import java.util.Scanner;
 
+import exception.BeverageFormatException;
+
 public abstract class Menu implements Menuinput {
 	protected Menukind kind= Menukind.중식;
 	protected int ordernumber;
@@ -74,7 +76,10 @@ public abstract class Menu implements Menuinput {
 		return beverage;
 	}
 
-	public void setBeverage(String beverage) {
+	public void setBeverage(String beverage) throws BeverageFormatException {
+		if(!beverage.contains("요") && !beverage.equals("") ) {
+			throw new BeverageFormatException();
+		}
 		this.beverage = beverage;
 	}
 
@@ -98,9 +103,16 @@ public abstract class Menu implements Menuinput {
 		this.setFoodprice(foodprice);
 	}
     public void setMenubeverage( Scanner input) {
-    	System.out.println("beverage");
-		String beverage=input.next();
-		this.setBeverage(beverage);
+    	String beverage = "";
+    	while (!beverage.contains("요")) {
+    	    System.out.println("beverage");
+		    beverage=input.next();
+		    try {
+			    this.setBeverage(beverage);
+		    } catch (BeverageFormatException e) {
+			    System.out.println("Incorrect Beverage Format. Put the beverage that contains 요");
+		    }
+    	}
 	}
 	
 	public void getUserInput(Scanner input) {
@@ -118,7 +130,14 @@ public abstract class Menu implements Menuinput {
 	        
 	        System.out.println("beverage:"); 
 	        String beverage= input.next();
-	        this.setBeverage(beverage);
+	        try {
+				this.setBeverage(beverage);  //여기 오류 뜨는데
+			} catch (BeverageFormatException e) {
+				
+			}
+			
+				
+			   
 	}
 	
 	public String getkind() {

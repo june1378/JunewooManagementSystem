@@ -2,6 +2,8 @@ package test;
 
 import java.util.Scanner;
 
+import exception.BeverageFormatException;
+
 public interface Menuinput {
 	
 	public int getOrdernumber();
@@ -12,7 +14,7 @@ public interface Menuinput {
 	
 	public void setFoodprice(int foodprice);
 	
-	public void setBeverage(String beverage);
+	public void setBeverage(String beverage) throws BeverageFormatException;
 	
 	public void getUserInput(Scanner input);
 	

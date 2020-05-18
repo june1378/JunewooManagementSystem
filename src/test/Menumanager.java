@@ -1,6 +1,7 @@
 package test;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menumanager {
@@ -13,37 +14,47 @@ public class Menumanager {
     public  void addfood() {
     	int kind = 0;
     	 Menuinput menuinput;
-    	while (kind!=1 && kind !=2) {
-    		System.out.println("1 for 중식");
-     	    System.out.println("2 for 양식");
-     	    System.out.println("3 for 한식");
-    	    System.out.println("select num for menu kind among 1, 2, 3:"); 
-    	    kind= input.nextInt();
-    	    if(kind==1) {
-    	    	menuinput = new 중식(Menukind.중식);
-    	    	menuinput.getUserInput(input);
-    	    	menues.add(menuinput);
-    	    	break;
+    	while (kind < 1 || kind>3) {
+    		try {
+    		    System.out.println("1 for 중식");
+     	        System.out.println("2 for 양식");
+     	        System.out.println("3 for 한식");
+    	        System.out.println("select num for menu kind among 1, 2, 3:"); 
+    	        kind= input.nextInt();
+    	        if(kind==1) {
+    	    	    menuinput = new 중식(Menukind.중식);
+    	    	    menuinput.getUserInput(input);
+    	    	    menues.add(menuinput);
+    	    	    break;
     		
-    	    }
-    	    else if (kind ==2) {
-    	        menuinput = new 양식(Menukind.양식); 
-    	        menuinput.getUserInput(input); 
-    	        menues.add(menuinput);
-    	    	break;
+    	        }
+    	        else if (kind ==2) {
+    	            menuinput = new 양식(Menukind.양식); 
+    	            menuinput.getUserInput(input); 
+    	            menues.add(menuinput);
+    	    	    break;
     		
-    	    }
-    	    else if (kind ==3) {
-    	        menuinput = new 한식(Menukind.한식);  
-    	        menuinput.getUserInput(input); 
-    	        menues.add(menuinput);
-    	    	break;
+    	        }
+    	        else if (kind ==3) {
+    	            menuinput = new 한식(Menukind.한식);  
+    	            menuinput.getUserInput(input); 
+    	            menues.add(menuinput);
+    	    	    break;
     		
-    	    }
-    	    else {
-    	    	System.out.println("select num for menu kind among 1, 2, 3:");
+    	        }
+    	        else {
+    	    	    System.out.println("select num for menu kind among 1, 2, 3:");
     		
-    	    }
+    	        }
+    		}
+    		catch(InputMismatchException e) {
+    			System.out.println("please put an integer between 1 and 3");
+				if (input.hasNext()) {
+					input.next();
+				}
+				kind=-1;
+    			
+    		}
     	}	
     }
     

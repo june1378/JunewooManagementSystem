@@ -2,6 +2,8 @@ package test;
 
 import java.util.Scanner;
 
+import exception.BeverageFormatException;
+
 public abstract class TeenageMenu extends Menu {
 	
 	public TeenageMenu(Menukind kind) {
@@ -22,26 +24,25 @@ public abstract class TeenageMenu extends Menu {
         {
         	System.out.println("do you want to order a beverage? (Y/N)"); 
             answer = input.next().charAt(0);
-            if(answer =='Y') {
-            	System.out.println("beverage:"); 
-	            String beverage= input.next();
-	            this.setBeverage(beverage);
-	            break;
+            try {
+	            if(answer =='Y') {
+	            	System.out.println("beverage:"); 
+		            String beverage= input.next();
+		            this.setBeverage(beverage);
+		            break;
+		        }
+	            else if (answer =='N') {
+	        	    this.setBeverage("");
+	        	    break;
+	            }
+	            else {
 	        }
-            else if (answer =='N') {
-        	    this.setBeverage("");
-        	    break;
             }
-            else {
-        	
-        }
-        
+            catch(BeverageFormatException e) {
+            	System.out.println("Incorrect Beverage Format. Put the beverage that contains ¿ä");
+            }
+        }	
+	}
 }
-		
-	}
-
-
-
-	}
 
 
