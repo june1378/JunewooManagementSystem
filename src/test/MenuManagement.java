@@ -30,7 +30,7 @@ public class MenuManagement {
 		putObject(Menumanager, "Menumanager.ser");
 		
 		}
-	
+
 	public static void selectMenu(Scanner input, Menumanager Menumanager) {
 		int num = -1;
 		while (num!=5) {

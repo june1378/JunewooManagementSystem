@@ -15,7 +15,7 @@ public abstract class Menu implements Menuinput, Serializable {
 	protected int ordernumber;
 	protected String foodname;
 	protected int foodprice;
-	protected String beverage; 
+	protected String beverage; //00
 	
 	public Menu() {
 	}

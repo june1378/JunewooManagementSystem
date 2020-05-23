@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Menumanager implements Serializable {
 	/**
 	 * 
-	 */
+	 */ 
 	public void setScanner(Scanner input) {
 		    this.input = input;
 		}
