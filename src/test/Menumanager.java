@@ -1,15 +1,25 @@
 package test;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Menumanager {
+public class Menumanager implements Serializable {
+	/**
+	 * 
+	 */
+	public void setScanner(Scanner input) {
+		    this.input = input;
+		}
+	private static final long serialVersionUID = 3319592367446804777L;
+	
 	ArrayList<Menuinput> menues = new ArrayList<Menuinput>();
 	Scanner input;
 	Menumanager(Scanner input){
 		this.input= input;
 	}
+	
 		
     public  void addfood() {
     	int kind = 0;

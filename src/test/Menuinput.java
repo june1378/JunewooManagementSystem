@@ -28,5 +28,4 @@ public interface Menuinput {
 	
 	public void setMenubeverage(Scanner input);
 	
-
 }
