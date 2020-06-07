@@ -1,13 +1,19 @@
 package GUI;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class MenuViewer extends JFrame {
+public class MenuViewer extends JPanel {
+	
+	WindowFrame frame;
 
-	public MenuViewer() {
+	public MenuViewer(WindowFrame frame) {
+		
+		this.frame = frame;
+		
 		DefaultTableModel model = new DefaultTableModel();
 		model.addColumn("Ordernumber");
 		model.addColumn("Foodname");
@@ -18,9 +24,6 @@ public class MenuViewer extends JFrame {
 		JScrollPane sp = new JScrollPane(table);
 		
 		this.add(sp);
-		this.setSize(300, 300);
-		this.setVisible(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
 
