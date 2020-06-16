@@ -1,9 +1,16 @@
-package test;
+package manager;
 
+import java.awt.Menu;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import test.Menuinput;
+import test.Menukind;
+import test.양식;
+import test.중식;
+import test.한식;
 
 public class Menumanager implements Serializable {
 	/**
@@ -21,7 +28,10 @@ public class Menumanager implements Serializable {
 	}
 	
 		
-    public  void addfood() {
+ 
+
+
+	public  void addfood() {
     	int kind = 0;
     	 Menuinput menuinput;
     	while (kind < 1 || kind>3) {
@@ -140,8 +150,13 @@ public class Menumanager implements Serializable {
         }
         
        }
+    public int size() {
+    	return menues.size();
+    }
     
-    
+    public Menuinput get(int index) {
+    	return (Menuinput) menues.get(index); // 강의는 Menu인데
+    }
     
     public void viewEditMenu() {
     	System.out.println("1.Add food");

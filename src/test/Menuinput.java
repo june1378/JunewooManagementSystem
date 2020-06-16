@@ -10,7 +10,11 @@ public interface Menuinput {
 	
 	public void setOrdernumber(int ordernumber);
 	
+	public String getFoodname();
+	
 	public void setFoodname(String foodname);
+	
+	public int getFoodprice();
 	
 	public void setFoodprice(int foodprice);
 	
@@ -27,5 +31,7 @@ public interface Menuinput {
 	public void setMenufoodprice(Scanner input);
 	
 	public void setMenubeverage(Scanner input);
+
+	public Object getBeverage(); //Menuview에 있는 row.add(si.getBeverage()); 땜에 추가
 	
 }

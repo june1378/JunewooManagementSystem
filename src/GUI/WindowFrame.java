@@ -3,23 +3,28 @@ package GUI;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import manager.MenuManagement;
+import manager.Menumanager;
+
 public class WindowFrame extends JFrame {
 	
+	Menumanager menumanager;
 	Menuselection menuselection;
 	MenuAdder menuadder;
 	MenuViewer menuviewer;
 	
+	
 
-	public WindowFrame() {
+	public WindowFrame(Menumanager menumanager) {
 		
-		this.menuselection = new Menuselection(this); 
-		this.menuadder = new MenuAdder(this);
-		this.menuviewer = new MenuViewer(this);
+		this.menumanager = menumanager;  // ¹¹°¡ ¹®Á¦Áö?
+		menuselection = new Menuselection(this); 
+	    menuadder = new MenuAdder(this);
+		menuviewer = new MenuViewer(this, this.menumanager);
 		
 		this.setSize(500, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
+	
 		this.setupPanel(menuselection);
 		
 		this.setVisible(true);
@@ -29,7 +34,7 @@ public class WindowFrame extends JFrame {
 	public void setupPanel(JPanel panel) {
 		this.getContentPane().removeAll();
 		this.getContentPane().add(panel);
-		revalidate();
+		this.revalidate();
 		this.repaint();
 		}
 	

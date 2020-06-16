@@ -1,4 +1,4 @@
-package test;
+package manager;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,6 +9,7 @@ import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner; // 강의에는 이게 없는데 가능한가?
 
+import GUI.WindowFrame;
 import Log.EventLogger;
 
 public class MenuManagement {
@@ -25,7 +26,7 @@ public class MenuManagement {
 			Menumanager.setScanner(input);
 		}
 				
-		
+		WindowFrame frame = new WindowFrame(Menumanager);
 		selectMenu(input, Menumanager);
 		putObject(Menumanager, "Menumanager.ser");
 		
